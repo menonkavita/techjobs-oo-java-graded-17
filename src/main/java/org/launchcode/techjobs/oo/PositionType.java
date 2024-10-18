@@ -41,12 +41,12 @@ public class PositionType {
         return id == that.id;
     }
 
+    // Objects.hashCode(): use to get the hashcode of a single object that might be null. It will throw an exception if the object is null.
+    // Objects.hash(): use to get a hashcode for multiple objects.
     @Override
     public int hashCode() {
         return Objects.hash(id);    // Changed from generated () Objects.hashCode(id) to Objects.hash(id)
     }
-
-
 
 
     // Getters and Setters:
