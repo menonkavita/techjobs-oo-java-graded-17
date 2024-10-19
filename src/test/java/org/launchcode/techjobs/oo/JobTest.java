@@ -46,6 +46,8 @@ public class JobTest {
         assertEquals("CoreCompetency name in Job class getting set by Constructor correctly", jobObj.getCoreCompetency().getValue(),"Persistence");
     }
 
+    // Test 3: Test two Job objects that have identical field values EXCEPT for id.
+    // Test 3: Tests equals() - Test that equals returns false.
     @Test
     public void testJobsForEquality(){
         Job jobObj1 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality Control"), new CoreCompetency("Persistence"));
