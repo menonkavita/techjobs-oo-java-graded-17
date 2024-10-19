@@ -44,7 +44,7 @@ public class Job {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Job job)) return false;
+        if (!(o instanceof Job job)) return false;      // ?? find info on this type of casting
         return id == job.id;
     }
 
