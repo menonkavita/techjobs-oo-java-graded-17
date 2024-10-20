@@ -3,6 +3,8 @@ package org.launchcode.techjobs.oo;
 
 import org.junit.Test;
 
+import java.util.Objects;
+
 import static org.junit.Assert.*;
 
 public class JobTest {
@@ -56,5 +58,87 @@ public class JobTest {
 //        assertFalse("Job class assigns unique IDs for every new entry", jobObj1.equals(jobObj2));         // ----- delete later
         assertNotEquals("Job class assigns unique IDs for every new entry", jobObj1, jobObj2);
     }
+
+    // Test 4: When passed a Job object, it should return a string that contains a
+    // blank line before and after the job information.
+    @Test
+    public void testToStringStartsAndEndsWithNewLine(){
+        // In windows, new line is represented by '\r\n' while Linux uses '\n' as newline.
+        // So System.lineSeparator() takes line separator of the current os.
+        // \r or Carriage Return puts cursor at the start of the line
+        // \n adds a new line & places cursor at the start
+        // System. lineSeparator() represents \r\n
+
+        Job jobObj = new Job();
+        Job jobObj2 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality Control"), new CoreCompetency("Persistence"));
+
+//        String strExpected = "\n" + "\n";
+//        String strExpected = System.lineSeparator();
+
+        String strExpected = "\r";
+        String strActual = jobObj.toString();
+        String [] wordActual = strActual.split("\n");
+
+        assertEquals("Line separator before text", strExpected, wordActual[0]);
+        assertEquals("Line separator after text", strExpected, wordActual[wordActual.length -1]);
+
+//        assertEquals("line separator before & after text", strExpected, jobObj.toString());
+    }
+
+    // Test 5: The string should contain a label for each field, followed by the data
+    // stored in that field. Each field should be on its own line.
+    @Test
+    public void testToStringContainsCorrectLabelsAndData(){
+        String lSep = System.lineSeparator();
+        String expData = "^\r\n(ID:.*\nName:.*\nEmployer:.*\nLocation:.*\nPosition Type:.*\nCore Competency:.*)\r\n";
+//        String strExpected = lSep +
+//                            "ID: " + expData + "\n" +
+//                            "Name: " + expData + "\n" +
+//                            "Employer: " + expData + "\n" +
+//                            "Location: "+ expData + "\n" +
+//                            "Position Type: "+ expData + "\n" +
+//                            "Core Competency: "+ expData + "\n" +
+//                            lSep ;
+
+        String strExpected = lSep + expData + lSep ;
+        Job jobObj = new Job();
+        assertEquals("Label for each field assigned", true, jobObj.toString().matches("^\r\n(ID:.*\nName:.*\nEmployer:.*\nLocation:.*\nPosition Type:.*\nCore Competency:.*)\r\n"));
+    }
+
+    // Test 6: If a field is empty, the method should add, “Data not available” after the label.
+    @Test
+    public void testToStringHandlesEmptyField(){
+//        String strExpected = "Data not available";
+
+        Job jobObj = new Job();
+        String strActual = jobObj.toString();
+        String [] wordActual = strActual.split("\n");
+
+        for(int i=1; i < wordActual.length-1; i++){
+
+            assertEquals("If field is empty, “Data not available” should be displayed", true, wordActual[i].contains("Data not available"));
+        }
+    }
+
+
+    // Test 7: (Optional)
+    // #5.4 If a Job object ONLY contains data for the id field,
+    // the method should return, “OOPS! This job does not seem to exist.”
+//    @Test
+//    public void testEmptyJobObject(){
+//        Job jobObj = new Job();
+//        Job jobObj2= new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality Control"), new CoreCompetency("Persistence"));
+//
+//        assertEquals("OOPS! This job does not seem to exist.", new Job().toString());
+//
+////        assertEquals("OOPS! This job does not seem to exist.”", assertThrows(NullPointerException.class, () -> new Job().toString()));
+//
+////        assertNotNull("OOPS! This job does not seem to exist.", jobObj);
+////        assertNull("OOPS! This job does not seem to exist. job.getName() failed.", jobObj2.getName());
+////        assertNull("OOPS! This job does not seem to exist. jobObj.getEmployer() failed.", jobObj.getEmployer());
+////        assertNull("OOPS! This job does not seem to exist", jobObj.getLocation());
+////        assertNull("OOPS! This job does not seem to exist", jobObj.getPositionType());
+////        assertNull("OOPS! This job does not seem to exist", jobObj.getCoreCompetency());
+//    }
 
 }
