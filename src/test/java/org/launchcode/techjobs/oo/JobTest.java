@@ -137,12 +137,12 @@ public class JobTest {
     // Test 7: (Optional)
     // #5.4 If a Job object ONLY contains data for the id field,
     // the method should return, “OOPS! This job does not seem to exist.”
-//    @Test
-//    public void testEmptyJobObject(){
-//        Job jobObj = new Job();
+    @Test
+    public void testEmptyJobObject(){
+        Job jobObj = new Job();
 //        Job jobObj2= new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality Control"), new CoreCompetency("Persistence"));
 //
-//        assertEquals("OOPS! This job does not seem to exist.", new Job().toString());
+        assertEquals("OOPS! This job does not seem to exist.", jobObj.toString());
 //
 ////        assertEquals("OOPS! This job does not seem to exist.”", assertThrows(NullPointerException.class, () -> new Job().toString()));
 //
@@ -152,6 +152,6 @@ public class JobTest {
 ////        assertNull("OOPS! This job does not seem to exist", jobObj.getLocation());
 ////        assertNull("OOPS! This job does not seem to exist", jobObj.getPositionType());
 ////        assertNull("OOPS! This job does not seem to exist", jobObj.getCoreCompetency());
-//    }
+    }
 
 }

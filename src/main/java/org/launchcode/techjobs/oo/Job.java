@@ -2,6 +2,7 @@ package org.launchcode.techjobs.oo;
 
 import java.util.Objects;
 
+
 public class Job {
 
     private int id;
@@ -110,23 +111,25 @@ public class Job {
         String notAvl = "Data not available";
         String strId = Integer.toString(getId());
 
-//        try{
-            // Optional part #5.4:
-            // Working on this ... breaking other tests & toString()
-            // strId contains data
-            // strId.isEmpty()
-            // getEmployer().getValue().isEmpty()
-            // getLocation().getValue().isEmpty()
-            // getPositionType().getValue().isEmpty()
-            //getCoreCompetency().getValue().isEmpty()
+        // Testing out #5.4 - (Optional) If a Job object ONLY contains data for the id field,
+        // the method should return, “OOPS! This job does not seem to exist.”
 
-//        } catch(NullPointerException e) {
-//            System.out.println("OOPS! This job does not seem to exist.");
-//        }
+//        if(!strId.isEmpty()){
+//            if(Objects.isNull(getName()) && Objects.isNull(getEmployer())  && Objects.isNull(getLocation())
+//                && Objects.isNull(getPositionType()) && Objects.isNull(getCoreCompetency())){
+//                return "OOPS! This job does not seem to exist.";
+//            }
+
+        if(!strId.isEmpty()){
+            if(Objects.isNull(getName()) && getEmployer() == null  && getLocation() == null
+                    && getPositionType() == null && getCoreCompetency() == null){
+                return "OOPS! This job does not seem to exist.";
+            }
+        } // end of if !strId.isEmpty()
 
 
 //        String strReturn = "\r\n" + "Testing" + "\r\n";
-//        String strReturn = "\r\n" +
+
 
             String strReturn = System.lineSeparator() +
                 "ID: " + (!strId.isEmpty() ? strId : notAvl) + "\n" +
@@ -137,14 +140,7 @@ public class Job {
                 "Core Competency: " + (!getCoreCompetency().getValue().isEmpty() ? getCoreCompetency().getValue() : notAvl) + "\n" +
                 System.lineSeparator();
 
-//        String strReturn = System.lineSeparator() +
-//                "ID: " + notAvl + "\n" +
-//                "Name: " + notAvl + "\n" +
-//                "Employer: " + notAvl + "\n" +
-//                "Location: " + notAvl + "\n" +
-//                "Position Type: " + notAvl + "\n" +
-//                "Core Competency: " + notAvl + "\n" +
-//                System.lineSeparator();
         return strReturn;
+
     }
 }
