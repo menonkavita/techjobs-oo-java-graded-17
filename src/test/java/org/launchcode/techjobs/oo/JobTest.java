@@ -108,16 +108,30 @@ public class JobTest {
     // Test 6: If a field is empty, the method should add, “Data not available” after the label.
     @Test
     public void testToStringHandlesEmptyField(){
-//        String strExpected = "Data not available";
+//        Job jobObj = new Job();
+//        String strActual = jobObj.toString();
+//        String [] wordActual = strActual.split("\n");
+//
+//        for(int i=1; i < wordActual.length-1; i++){
+//            assertEquals("If field is empty, “Data not available” should be displayed", true, wordActual[i].contains("Data not available"));
 
-        Job jobObj = new Job();
-        String strActual = jobObj.toString();
-        String [] wordActual = strActual.split("\n");
+        Job jobObj2 = new Job("", new Employer("ACME"), new Location(""), new PositionType(""), new CoreCompetency("Persistence"));
+        int testId = jobObj2.getId();
+        String strNotAvl = "Data not available";
 
-        for(int i=1; i < wordActual.length-1; i++){
-            assertEquals("If field is empty, “Data not available” should be displayed", true, wordActual[i].contains("Data not available"));
+        String lSep = System.lineSeparator();
+        String strExpected = lSep +
+                "ID: " + testId + "\n" +
+                "Name: " + strNotAvl + "\n" +
+                "Employer: " + "ACME" + "\n" +
+                "Location: " + strNotAvl + "\n" +
+                "Position Type: " + strNotAvl + "\n" +
+                "Core Competency: " + "Persistence" + "\n" +
+                lSep ;
+
+        assertEquals("String Handles Empty Field", strExpected, jobObj2.toString());
         }
-    }
+
 
 
     // Test 7: (Optional)
