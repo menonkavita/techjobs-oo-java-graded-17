@@ -134,8 +134,7 @@ public class JobTest {
 
 
 
-    // Test 7: (Optional)
-    // #5.4 If a Job object ONLY contains data for the id field,
+    // Test 7: (Optional) Task #5.4 If a Job object ONLY contains data for the id field,
     // the method should return, “OOPS! This job does not seem to exist.”
     @Test
     public void testEmptyJobObject(){

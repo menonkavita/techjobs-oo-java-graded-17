@@ -111,7 +111,7 @@ public class Job {
         String notAvl = "Data not available";
         String strId = Integer.toString(getId());
 
-        // Testing out #5.4 - (Optional) If a Job object ONLY contains data for the id field,
+        // Testing out Task #5.4 - (Optional) If a Job object ONLY contains data for the id field,
         // the method should return, “OOPS! This job does not seem to exist.”
 
 //        if(!strId.isEmpty()){
