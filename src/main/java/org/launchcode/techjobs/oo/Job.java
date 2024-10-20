@@ -128,23 +128,23 @@ public class Job {
 //        String strReturn = "\r\n" + "Testing" + "\r\n";
 //        String strReturn = "\r\n" +
 
-//            String strReturn = System.lineSeparator() +
-//                "ID: " + (strId.isEmpty() ? strId : notAvl) + "\n" +
-//                "Name: " + (!getName().isEmpty() ? getName().isEmpty() : notAvl) + "\n" +
-//                "Employer: " + (!getEmployer().getValue().isEmpty() ? getEmployer().getValue() : notAvl) + "\n" +
-//                "Location: " + (!getLocation().getValue().isEmpty() ? getLocation().getValue() : notAvl) + "\n" +
-//                "Position Type: " + (!getPositionType().getValue().isEmpty() ? getPositionType().getValue() : notAvl) + "\n" +
-//                "Core Competency: " + (getCoreCompetency().getValue().isEmpty() ? getCoreCompetency().getValue() : notAvl) + "\n" +
-//                System.lineSeparator();
-
-        String strReturn = System.lineSeparator() +
-                "ID: " + notAvl + "\n" +
-                "Name: " + notAvl + "\n" +
-                "Employer: " + notAvl + "\n" +
-                "Location: " + notAvl + "\n" +
-                "Position Type: " + notAvl + "\n" +
-                "Core Competency: " + notAvl + "\n" +
+            String strReturn = System.lineSeparator() +
+                "ID: " + (!strId.isEmpty() ? strId : notAvl) + "\n" +
+                "Name: " + (!getName().isEmpty() ? getName() : notAvl) + "\n" +
+                "Employer: " + (!getEmployer().getValue().isEmpty() ? getEmployer().getValue() : notAvl) + "\n" +
+                "Location: " + (!getLocation().getValue().isEmpty() ? getLocation().getValue() : notAvl) + "\n" +
+                "Position Type: " + (!getPositionType().getValue().isEmpty() ? getPositionType().getValue() : notAvl) + "\n" +
+                "Core Competency: " + (!getCoreCompetency().getValue().isEmpty() ? getCoreCompetency().getValue() : notAvl) + "\n" +
                 System.lineSeparator();
+
+//        String strReturn = System.lineSeparator() +
+//                "ID: " + notAvl + "\n" +
+//                "Name: " + notAvl + "\n" +
+//                "Employer: " + notAvl + "\n" +
+//                "Location: " + notAvl + "\n" +
+//                "Position Type: " + notAvl + "\n" +
+//                "Core Competency: " + notAvl + "\n" +
+//                System.lineSeparator();
         return strReturn;
     }
 }
