@@ -2,6 +2,8 @@ package org.launchcode.techjobs.oo;
 
 import java.util.Objects;
 
+import static java.lang.System.lineSeparator;
+
 
 public class Job {
 
@@ -135,14 +137,17 @@ public class Job {
         // So System.lineSeparator() takes line separator of the current os.
         //  String strReturn = "\r\n" + "Testing" + "\r\n";
 
-            String strReturn = System.lineSeparator() +
+        //String strReturn = lineSeparator() +  // 38 of 44 tests pass; 3 from LC, 3 from JobTest failing - EmptyField, CorrectLabelsAndData, StringStartsAndEndsWithNewLine.
+
+            String strReturn = "\n" +   // 42 of 44 tests pass; one from JobTest + one from LC failing - StringStartsAndEndsWithNewLine
                 "ID: " + (!strId.isEmpty() ? strId : notAvl) + "\n" +
                 "Name: " + (!getName().isEmpty() ? getName() : notAvl) + "\n" +
                 "Employer: " + (!getEmployer().getValue().isEmpty() ? getEmployer().getValue() : notAvl) + "\n" +
                 "Location: " + (!getLocation().getValue().isEmpty() ? getLocation().getValue() : notAvl) + "\n" +
                 "Position Type: " + (!getPositionType().getValue().isEmpty() ? getPositionType().getValue() : notAvl) + "\n" +
-                "Core Competency: " + (!getCoreCompetency().getValue().isEmpty() ? getCoreCompetency().getValue() : notAvl) + "\n" +
-                System.lineSeparator();
+                "Core Competency: " + (!getCoreCompetency().getValue().isEmpty() ? getCoreCompetency().getValue() : notAvl) + "\n";
+
+                //   + lineSeparator();    // 38 of 44 tests pass; 3 from LC, 3 from JobTest failing - EmptyField, CorrectLabelsAndData, StringStartsAndEndsWithNewLine.
 
         return strReturn;
 
