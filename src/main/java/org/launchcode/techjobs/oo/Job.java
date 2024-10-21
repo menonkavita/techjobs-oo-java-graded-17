@@ -160,21 +160,21 @@ public class Job {
 
 
 
-        String strResult = "ID: %s\n" +
+        String strResult = "\nID: %s\n" +
                 "Name: %s\n" +
                 "Employer: %s\n" +
                 "Location: %s\n" +
                 "Position Type: %s\n" +
-                "Core Competency: %s";
+                "Core Competency: %s\n";
 
-        String strReturn = lineSeparator().replace("\r\n", "\n") +
+        String strReturn = //lineSeparator().replace("\r\n", "\n") +
                 String.format(strResult, (!strId.isEmpty() ? strId : notAvl),
                 (!getName().isEmpty() ? getName() : notAvl),
                 (!getEmployer().getValue().isEmpty() ? getEmployer().getValue() : notAvl),
                 (!getLocation().getValue().isEmpty() ? getLocation().getValue() : notAvl),
                 (!getPositionType().getValue().isEmpty() ? getPositionType().getValue() : notAvl),
-                (!getCoreCompetency().getValue().isEmpty() ? getCoreCompetency().getValue() : notAvl))
-                + lineSeparator().replace("\r\n", "\n");
+                (!getCoreCompetency().getValue().isEmpty() ? getCoreCompetency().getValue() : notAvl));
+//                + lineSeparator().replace("\r\n", "\n");
 
         return strReturn;
 

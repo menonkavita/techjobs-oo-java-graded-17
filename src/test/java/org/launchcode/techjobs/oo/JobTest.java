@@ -82,13 +82,16 @@ public class JobTest {
         int len = jobObj2.toString().length();
         String expectLast = String.valueOf(jobObj2.toString().charAt(len-1));
 
-        // Passes test if jobObj2.toString() starts & ends with "\n" instead of "lineSeparator()"
+    // Passes test if jobObj2.toString() starts & ends with "\n" instead of "lineSeparator()"
 //        assertEquals(expectFirst, "\n");
 //        assertEquals(expectLast, "\n");
 
         // --- Fails test
-        assertEquals(expectFirst.replace("\n", lineSeparator()), lineSeparator());
-        assertEquals(expectLast.replace("\n", "\r\n"), lineSeparator());
+//        assertEquals(expectFirst.replace("\n", lineSeparator()), lineSeparator());
+//        assertEquals(expectLast.replace("\n", "\r\n"), lineSeparator());
+
+        assertEquals(expectFirst, lineSeparator());
+        assertEquals(expectLast, lineSeparator());
 
 
 // ------- IGNORE ---------------
