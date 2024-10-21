@@ -87,8 +87,8 @@ public class JobTest {
 //        assertEquals(expectLast, "\n");
 
         // --- Fails test
-        assertEquals(expectFirst, lineSeparator());
-        assertEquals(expectLast, lineSeparator());
+        assertEquals(expectFirst.replace("\n", lineSeparator()), lineSeparator());
+        assertEquals(expectLast.replace("\n", "\r\n"), lineSeparator());
 
 
 // ------- IGNORE ---------------

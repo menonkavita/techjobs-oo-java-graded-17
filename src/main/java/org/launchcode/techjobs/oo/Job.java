@@ -137,17 +137,22 @@ public class Job {
         // So System.lineSeparator() takes line separator of the current os.
         //  String strReturn = "\r\n" + "Testing" + "\r\n";
 
-        //String strReturn = lineSeparator() +  // 38 of 44 tests pass; 3 from LC, 3 from JobTest failing - EmptyField, CorrectLabelsAndData, StringStartsAndEndsWithNewLine.
+        //String strReturn = "\n" +   // 42 of 44 tests pass; one from JobTest + one from LC failing - StringStartsAndEndsWithNewLine
 
-            String strReturn = "\n" +   // 42 of 44 tests pass; one from JobTest + one from LC failing - StringStartsAndEndsWithNewLine
+//        String strReturn = lineSeparator() +
+
+
+        // Earlier: 38 of 44 tests pass; 3 from LC, 3 from JobTest failing - EmptyField, CorrectLabelsAndData, StringStartsAndEndsWithNewLine.
+        // Now: Modified with .replace() -> 43 of 44 tests passing; except TestTaskFive - ToStringStringStartsAndEndsWithNewLine()
+        String strReturn = lineSeparator().replace("\r\n", "\n") +
                 "ID: " + (!strId.isEmpty() ? strId : notAvl) + "\n" +
                 "Name: " + (!getName().isEmpty() ? getName() : notAvl) + "\n" +
                 "Employer: " + (!getEmployer().getValue().isEmpty() ? getEmployer().getValue() : notAvl) + "\n" +
                 "Location: " + (!getLocation().getValue().isEmpty() ? getLocation().getValue() : notAvl) + "\n" +
                 "Position Type: " + (!getPositionType().getValue().isEmpty() ? getPositionType().getValue() : notAvl) + "\n" +
-                "Core Competency: " + (!getCoreCompetency().getValue().isEmpty() ? getCoreCompetency().getValue() : notAvl) + "\n";
+                "Core Competency: " + (!getCoreCompetency().getValue().isEmpty() ? getCoreCompetency().getValue() : notAvl) //+ "\n";
 
-                //   + lineSeparator();    // 38 of 44 tests pass; 3 from LC, 3 from JobTest failing - EmptyField, CorrectLabelsAndData, StringStartsAndEndsWithNewLine.
+                   + lineSeparator().replace("\r\n", "\n");    // 38 of 44 tests pass; 3 from LC, 3 from JobTest failing - EmptyField, CorrectLabelsAndData, StringStartsAndEndsWithNewLine.
 
         return strReturn;
 
