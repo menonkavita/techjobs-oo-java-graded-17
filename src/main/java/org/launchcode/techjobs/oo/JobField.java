@@ -57,6 +57,6 @@ public abstract class JobField {
     // Objects.hash(): use to get a hashcode for multiple objects.
     @Override
     public int hashCode() {
-        return Objects.hash(id);            // Changed from generated () Objects.hashCode(id) to Objects.hash(id)
+        return Objects.hash(id);            // Changed from generated() Objects.hashCode(id) to Objects.hash(id)
     }
 }
