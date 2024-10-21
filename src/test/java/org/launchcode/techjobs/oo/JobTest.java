@@ -63,7 +63,7 @@ public class JobTest {
     // blank line before and after the job information.
     @Test
     public void testToStringStartsAndEndsWithNewLine(){
-        // In windows, new line is represented by '\r\n' while Linux uses '\n' as newline.
+        // new line in windows is represented by '\r\n' while in Linux it is '\n'
         // So System.lineSeparator() takes line separator of the current os.
         // \r or Carriage Return puts cursor at the start of the line
         // \n adds a new line & places cursor at the start
@@ -140,17 +140,9 @@ public class JobTest {
     public void testEmptyJobObject(){
         Job jobObj = new Job();
 //        Job jobObj2= new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality Control"), new CoreCompetency("Persistence"));
-//
+
         assertEquals("OOPS! This job does not seem to exist.", jobObj.toString());
-//
-////        assertEquals("OOPS! This job does not seem to exist.”", assertThrows(NullPointerException.class, () -> new Job().toString()));
-//
-////        assertNotNull("OOPS! This job does not seem to exist.", jobObj);
-////        assertNull("OOPS! This job does not seem to exist. job.getName() failed.", jobObj2.getName());
-////        assertNull("OOPS! This job does not seem to exist. jobObj.getEmployer() failed.", jobObj.getEmployer());
-////        assertNull("OOPS! This job does not seem to exist", jobObj.getLocation());
-////        assertNull("OOPS! This job does not seem to exist", jobObj.getPositionType());
-////        assertNull("OOPS! This job does not seem to exist", jobObj.getCoreCompetency());
+
     }
 
 }

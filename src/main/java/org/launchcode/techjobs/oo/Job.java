@@ -108,18 +108,21 @@ public class Job {
 
     @Override
     public String toString() {
-        String notAvl = "Data not available";
-        String strId = Integer.toString(getId());
 
-        // Testing out Task #5.4 - (Optional) If a Job object ONLY contains data for the id field,
-        // the method should return, “OOPS! This job does not seem to exist.”
+    // Testing out Task #5.4 - (Optional) If a Job object ONLY contains data for the id field,
+    // the method should return, “OOPS! This job does not seem to exist.”
 
+//      Another Option to catch null objects / perform null checks:
 //        if(!strId.isEmpty()){
 //            if(Objects.isNull(getName()) && Objects.isNull(getEmployer())  && Objects.isNull(getLocation())
 //                && Objects.isNull(getPositionType()) && Objects.isNull(getCoreCompetency())){
 //                return "OOPS! This job does not seem to exist.";
 //            }
 
+        String notAvl = "Data not available";
+        String strId = Integer.toString(getId());
+
+        // Performs null checks without throwing Null Pointer Exception
         if(!strId.isEmpty()){
             if(Objects.isNull(getName()) && getEmployer() == null  && getLocation() == null
                     && getPositionType() == null && getCoreCompetency() == null){
@@ -128,8 +131,9 @@ public class Job {
         } // end of if !strId.isEmpty()
 
 
-//        String strReturn = "\r\n" + "Testing" + "\r\n";
-
+        // new line in windows is represented by '\r\n' while in Linux it is '\n'
+        // So System.lineSeparator() takes line separator of the current os.
+        //  String strReturn = "\r\n" + "Testing" + "\r\n";
 
             String strReturn = System.lineSeparator() +
                 "ID: " + (!strId.isEmpty() ? strId : notAvl) + "\n" +
