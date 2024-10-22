@@ -159,15 +159,27 @@ public class Job {
         //String result = String.format(myStr, "World", 1024);
 
 
+// Old code 42/44 tests passed
+//        String strResult = "\nID: %s\n" +
+//                "Name: %s\n" +
+//                "Employer: %s\n" +
+//                "Location: %s\n" +
+//                "Position Type: %s\n" +
+//                "Core Competency: %s\n";
 
-        String strResult = "\nID: %s\n" +
-                "Name: %s\n" +
-                "Employer: %s\n" +
-                "Location: %s\n" +
-                "Position Type: %s\n" +
-                "Core Competency: %s\n";
 
-        String strReturn = //lineSeparator().replace("\r\n", "\n") +
+        //        String notAvl = "Data not available";
+        //        String strId = Integer.toString(getId());
+
+        String strResult =
+                "ID: %s" + lineSeparator() +
+                "Name: %s" + lineSeparator() +
+                "Employer: %s" + lineSeparator() +
+                "Location: %s" + lineSeparator() +
+                "Position Type: %s" + lineSeparator() +
+                "Core Competency: %s" + lineSeparator();
+
+        String strReturn = lineSeparator() + //lineSeparator().replace("\r\n", "\n") +
                 String.format(strResult, (!strId.isEmpty() ? strId : notAvl),
                 (!getName().isEmpty() ? getName() : notAvl),
                 (!getEmployer().getValue().isEmpty() ? getEmployer().getValue() : notAvl),

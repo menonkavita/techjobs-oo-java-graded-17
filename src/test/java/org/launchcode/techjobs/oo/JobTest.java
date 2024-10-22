@@ -73,7 +73,7 @@ public class JobTest {
 
         // --- Empty Job obj test fails coz empty job object throws Null Pointer Exception ;
         // no need to test empty job object, test #7 taking care of it
-//        Job jobObj = new Job();
+        // Job jobObj = new Job();
 
         Job jobObj2 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality Control"), new CoreCompetency("Persistence"));
 
@@ -83,15 +83,16 @@ public class JobTest {
         String expectLast = String.valueOf(jobObj2.toString().charAt(len-1));
 
     // Passes test if jobObj2.toString() starts & ends with "\n" instead of "lineSeparator()"
-//        assertEquals(expectFirst, "\n");
-//        assertEquals(expectLast, "\n");
+    // assertEquals(expectFirst, "\n");
+    // assertEquals(expectLast, "\n");
 
-        // --- Fails test
-//        assertEquals(expectFirst.replace("\n", lineSeparator()), lineSeparator());
-//        assertEquals(expectLast.replace("\n", "\r\n"), lineSeparator());
+    // Passes test
+    // assertEquals(expectFirst.replace("\n", lineSeparator()), lineSeparator());
+    // assertEquals(expectLast.replace("\n", "\r\n"), lineSeparator());
 
-        assertEquals(expectFirst, lineSeparator());
-        assertEquals(expectLast, lineSeparator());
+    // ----- Fails test ------
+     assertEquals(expectFirst, "\r");
+     assertEquals(expectLast, "\n");
 
 
 // ------- IGNORE ---------------
@@ -130,13 +131,13 @@ public class JobTest {
 //                            "Core Competency: "+ "Persistence" + "\n" +
 //                            lSep ;
 
-        String strExpected = "\n" +
-                "ID: " + testId + "\n" +
-                "Name: " + "Product tester" + "\n" +
-                "Employer: " + "ACME" + "\n" +
-                "Location: "+ "Desert" + "\n" +
-                "Position Type: "+ "Quality Control" + "\n" +
-                "Core Competency: "+ "Persistence" + "\n";
+        String strExpected = lineSeparator() +
+                "ID: " + testId + lineSeparator() +
+                "Name: " + "Product tester" + lineSeparator() +
+                "Employer: " + "ACME" + lineSeparator() +
+                "Location: "+ "Desert" + lineSeparator() +
+                "Position Type: "+ "Quality Control" + lineSeparator() +
+                "Core Competency: "+ "Persistence" + lineSeparator();
 
         assertEquals("String contains correct labels & data", strExpected, jobObj3.toString());
     }
@@ -165,13 +166,13 @@ public class JobTest {
 //                "Core Competency: " + "Persistence" + "\n" +
 //                lSep ;
 
-        String strExpected = "\n" +
-                "ID: " + testId + "\n" +
-                "Name: " + strNotAvl + "\n" +
-                "Employer: " + "ACME" + "\n" +
-                "Location: " + strNotAvl + "\n" +
-                "Position Type: " + strNotAvl + "\n" +
-                "Core Competency: " + "Persistence" + "\n";
+        String strExpected = lineSeparator() +
+                "ID: " + testId + lineSeparator() +
+                "Name: " + strNotAvl + lineSeparator() +
+                "Employer: " + "ACME" + lineSeparator() +
+                "Location: " + strNotAvl + lineSeparator() +
+                "Position Type: " + strNotAvl + lineSeparator() +
+                "Core Competency: " + "Persistence" + lineSeparator();
 
         assertEquals("String Handles Empty Field", strExpected, jobObj2.toString());
         }
