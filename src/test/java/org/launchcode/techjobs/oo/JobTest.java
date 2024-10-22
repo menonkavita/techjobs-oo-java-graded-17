@@ -90,9 +90,12 @@ public class JobTest {
     // assertEquals(expectFirst.replace("\n", lineSeparator()), lineSeparator());
     // assertEquals(expectLast.replace("\n", "\r\n"), lineSeparator());
 
-    // ----- Fails test ------
-     assertEquals(expectFirst, "\r");
-     assertEquals(expectLast, "\n");
+    // ----- Fails test especially after code update from LC Repo  ------
+//     assertEquals(expectFirst, "\r");
+//     assertEquals(expectLast, "\n");
+
+        assertTrue(jobObj2.toString().startsWith(lineSeparator()));
+        assertTrue(jobObj2.toString().endsWith(lineSeparator()));
 
 
 // ------- IGNORE ---------------
